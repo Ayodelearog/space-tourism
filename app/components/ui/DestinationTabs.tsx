@@ -75,7 +75,7 @@ export default function DestinationTabs() {
 								}`}
 							>
 								<div className="w-full flex flex-col items-center gap-16">
-									<h1 className="text-white uppercase text-preset-2 text-[58px] font-bellefair ">
+									<h1 className="text-white uppercase text-preset-2 text-[57px] font-bellefair ">
 										{destination.name}
 									</h1>
 									<p className="font-barlow text-preset-9 text-[15px] text-blue-300 text-center">
@@ -114,10 +114,12 @@ export default function DestinationTabs() {
 				<div className="w-full py-24 flex justify-center items-center relative">
 					{destinations.map((destination) => (
 						<TabsContent
-            key={destination.name}
+							key={destination.name}
 							value={destination.name.toLowerCase()}
 							className={`transition-opacity duration-600 ${
-								activeTab === destination.name.toLowerCase() ? "opacity-100" : "opacity-0"
+								activeTab === destination.name.toLowerCase()
+									? "opacity-100"
+									: "opacity-0"
 							}`}
 						>
 							<div className="w-[150px] h-[150px]">
@@ -132,7 +134,6 @@ export default function DestinationTabs() {
 							</div>
 						</TabsContent>
 					))}
-					
 				</div>
 			</Tabs>
 		</div>

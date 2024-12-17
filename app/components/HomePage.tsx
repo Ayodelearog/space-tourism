@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "./ui/Button";
 import BackgroundImage from "./BackgroundImage";
+import Link from "next/link";
 
 const HomePage: React.FC = () => {
 	return (
 		<section className="relative w-full min-h-screen pt-[102px]">
-			<div className="absolute inset-0 z-0">
+			<div className="absolute h-screen inset-0 z-0">
 				<BackgroundImage />
 			</div>
 
@@ -13,7 +14,7 @@ const HomePage: React.FC = () => {
 				<p className="font-barlow-condensed text-preset-6 text-[16px] text-blue-300">
 					SO, YOU WANT TO TRAVEL TO
 				</p>
-				<h1 className="font-bellefair text-preset-1 text-white text-[80px]">SPACE</h1>
+				<h1 className="font-bellefair text-preset-1 text-white text-[79px]">SPACE</h1>
 				<p className="font-barlow-condensed text-preset-9 text-[15px] text-blue-300 text-center">
 					Let’s face it; if you want to go to space, you might as well genuinely
 					go to outer space and not hover kind of on the edge of it. Well sit
@@ -21,9 +22,9 @@ const HomePage: React.FC = () => {
 					experience!
 				</p>
 
-				<div className="">
+				<Link href="/destination" className="">
 					<Button />
-				</div>
+				</Link >
 			</div>
 		</section>
 	);

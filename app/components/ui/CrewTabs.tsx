@@ -2,7 +2,8 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useSwipeable } from "react-swipeable";
 
 const crews = [
 	{
@@ -41,15 +42,40 @@ const crews = [
 
 export default function CrewTabs() {
 	const [activeTab, setActiveTab] = useState("1");
+
+
+	const handleSwipe = useCallback(
+		(direction: "LEFT" | "RIGHT") => {
+			const currentIndex = crews.findIndex((crew) => crew.id === activeTab);
+			if (direction === "LEFT") {
+				const nextIndex = (currentIndex + 1) % crews.length;
+				setActiveTab(crews[nextIndex].id);
+			} else if (direction === "RIGHT") {
+				const prevIndex = (currentIndex - 1 + crews.length) % crews.length;
+				setActiveTab(crews[prevIndex].id);
+			}
+		},
+		[activeTab]
+	);
+
+	const swipeHandlers = useSwipeable({
+		onSwipedLeft: () => handleSwipe("LEFT"),
+		onSwipedRight: () => handleSwipe("RIGHT"),
+		trackMouse: true,
+		trackTouch: true,
+	});
+
+
+
 	return (
-		<div className="w-full h-full ">
+		<div className="w-full h-full " {...swipeHandlers}>
 			<Tabs
 				value={activeTab}
 				onValueChange={setActiveTab}
 				className="w-full flex flex-col gap-32 "
 			>
 				<div className="flex flex-col gap-24">
-					<div>
+					<div >
 						{crews.map((crew) => (
 							<TabsContent
 								key={crew.name}
