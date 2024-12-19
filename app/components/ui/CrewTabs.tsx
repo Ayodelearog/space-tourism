@@ -43,7 +43,6 @@ const crews = [
 export default function CrewTabs() {
 	const [activeTab, setActiveTab] = useState("1");
 
-
 	const handleSwipe = useCallback(
 		(direction: "LEFT" | "RIGHT") => {
 			const currentIndex = crews.findIndex((crew) => crew.id === activeTab);
@@ -65,8 +64,6 @@ export default function CrewTabs() {
 		trackTouch: true,
 	});
 
-
-
 	return (
 		<div className="w-full h-full " {...swipeHandlers}>
 			<Tabs
@@ -74,8 +71,8 @@ export default function CrewTabs() {
 				onValueChange={setActiveTab}
 				className="w-full flex flex-col gap-32 "
 			>
-				<div className="flex flex-col gap-24">
-					<div >
+				<div className="flex flex-col gap-24 md:pt-10 md:px-[88px]">
+					<div>
 						{crews.map((crew) => (
 							<TabsContent
 								key={crew.name}
@@ -85,10 +82,10 @@ export default function CrewTabs() {
 								}`}
 							>
 								<div className="w-full text-center flex flex-col items-center gap-8">
-									<p className="text-white text-preset-4 text-[18px] font-bellefair text-opacity-50 uppercase ">
+									<p className="text-white leading-[20.6px] text-[18px]  font-bellefair text-opacity-50 uppercase md:leading-[28px]  md:text-[24px]">
 										{crew.rank}
 									</p>
-									<p className="text-white text-[24px] font-bellefair  uppercase ">
+									<p className="text-white text-[24px] leading-[27.5px] font-bellefair uppercase  md:text-[40px]">
 										{crew.name}
 									</p>
 								</div>
@@ -116,22 +113,24 @@ export default function CrewTabs() {
 				<div className="w-full flex justify-center items-center relative">
 					{crews.map((crew) => (
 						<TabsContent
-							key={crew.id}
-							value={crew.id}
-							className={`transition-opacity backdrop-blur h-[340px] duration-600  w-full ${
-								activeTab === crew.id ? "opacity-100" : "opacity-0"
-							}`}
-						>
-							<Image
-								src={crew.image}
-								alt={crew.name.toLowerCase()}
-								fill
-								priority
-								className="object-contain md:hidden"
-							/>
-
-							<div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent h-[60px] w-full    "></div>
-						</TabsContent>
+						key={crew.id}
+						value={crew.id}
+						className={`transition-opacity duration-600 w-full ${
+						  activeTab === crew.id ? "opacity-100" : "opacity-0"
+						}`}
+					  >
+						<div className="relative w-full h-[340px] md:h-[532px] lg:h-[712px]">
+						  <Image
+							src={crew.image}
+							alt={crew.name.toLowerCase()}
+							fill
+							priority
+							sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+							className="object-contain"
+						  />
+						  <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-gradient-to-t from-blue-900 to-transparent"></div>
+						</div>
+					  </TabsContent>
 					))}
 				</div>
 			</Tabs>

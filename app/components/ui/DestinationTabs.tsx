@@ -48,14 +48,14 @@ export default function DestinationTabs() {
 				onValueChange={setActiveTab}
 				className="w-full flex flex-col-reverse gap-32 "
 			>
-				<div className="flex flex-col gap-24">
+				<div className="flex flex-col gap-24 md:px-[87px] md:py-3">
 					<TabsList className="w-full bg-transparent justify-start">
-						<div className="w-full px-[40.5px] flex items-center gap-32">
+						<div className="w-full px-[40.5px] flex items-center gap-32 md:justify-center">
 							{destinations.map((destination, index) => (
 								<TabsTrigger
 									key={destination.name}
 									value={destination.name.toLowerCase()}
-									className="text-preset-8 text-[14px] font-barlow-condensed p-0 pb-[15px] border-b-[3px] border-transparent rounded-none data-[state=active]:border-white data-[state=active]:text-white text-blue-300 hover:border-white hover:border-opacity-25 transition-colors duration-600 ease-in-out"
+									className="text-preset-8 text-[14px] font-barlow-condensed p-0 pb-[15px] border-b-[3px] border-transparent rounded-none data-[state=active]:border-white data-[state=active]:text-white text-blue-300 hover:border-white hover:border-opacity-25 transition-colors duration-600 ease-in-out md:text-preset-8 "
 								>
 									{destination.name}
 								</TabsTrigger>
@@ -75,7 +75,7 @@ export default function DestinationTabs() {
 								}`}
 							>
 								<div className="w-full flex flex-col items-center gap-16">
-									<h1 className="text-white uppercase text-preset-2 text-[57px] font-bellefair ">
+									<h1 className="text-white uppercase text-preset-2 text-[57px] font-bellefair md:text-preset-2">
 										{destination.name}
 									</h1>
 									<p className="font-barlow text-preset-9 text-[15px] text-blue-300 text-center">
@@ -85,7 +85,9 @@ export default function DestinationTabs() {
 
 								<div className="w-full border-t border-white border-opacity-25"></div>
 
-								<div className={`w-full flex flex-col items-center gap-24`}>
+								<div
+									className={`w-full flex flex-col items-center gap-24 md:flex-row md:items-center md:justify-center`}
+								>
 									<div className="flex flex-col gap-12">
 										<p className="font-barlow-condensed uppercase text-preset-7 text-[14px] text-blue-300 text-center">
 											AVG. DISTANCE
@@ -111,25 +113,25 @@ export default function DestinationTabs() {
 					</div>
 				</div>
 
-				<div className="w-full py-24 flex justify-center items-center relative">
+				<div className="w-full py-24 flex justify-center items-center relative ">
 					{destinations.map((destination) => (
 						<TabsContent
 							key={destination.name}
 							value={destination.name.toLowerCase()}
-							className={`transition-opacity duration-600 ${
+							className={`transition-opacity duration-600   ${
 								activeTab === destination.name.toLowerCase()
 									? "opacity-100"
 									: "opacity-0"
 							}`}
 						>
-							<div className="w-[150px] h-[150px]">
+							<div className="relative w-[150px] h-[150px] md:w-[300px] md:h-[300px] lg:w-[445px] lg:h-[445px]">
 								<Image
 									src={destination.image}
-									alt={destination.name.toLowerCase()}
-									width={150}
-									height={150}
+									alt={`Image of ${destination.name}`}
+									fill
+									sizes="(max-width: 768px) 150px, (max-width: 1024px) 300px, 445px"
 									priority
-									className="object-contain md:hidden"
+									className="object-contain"
 								/>
 							</div>
 						</TabsContent>
