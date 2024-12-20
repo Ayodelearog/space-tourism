@@ -95,7 +95,7 @@ export default function TechnologyTabs() {
 				<div className="flex flex-col gap-24 md:gap-32 md:px-[88px] px-6 lg:w-[50%] lg:px-0 lg:flex-row lg:items-center lg:gap-[64px] ">
 					<TabsList className="w-full bg-transparent justify-start">
 						<div className="w-full px-[40.5px] flex justify-center items-center gap-32 lg:flex-col lg:px-0 lg:w-fit">
-							{technologies.map((technology, index) => (
+							{technologies.map((technology) => (
 								<TabsTrigger
 									key={technology.id}
 									value={technology.id}

@@ -29,6 +29,7 @@ const Header = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const pathname = usePathname();
 	const { width } = useWindowSize();
+	
 
 	return (
 		<header className="py-6 md:p-0 w-full fixed top-0 left-0 z-20 ">
@@ -84,7 +85,7 @@ const Header = () => {
 													: "border-transparent text-preset-8 hover:border-gray-400"
 											}`}
 						>
-							{width < 1440 ? (
+							{width !== null && width  < 1440 ? (
 								<p
 									className={`font-bold ${
 										pathname === "/" && item.name.toLowerCase() === "home"

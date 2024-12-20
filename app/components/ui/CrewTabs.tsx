@@ -99,7 +99,7 @@ export default function CrewTabs() {
 
 					<TabsList className="w-full bg-transparent justify-start lg:absolute lg:bottom-0 lg:left-0 lg:w-fit">
 						<div className="w-full px-[40.5px] lg:px-0 flex justify-center items-center gap-32">
-							{crews.map((crew, index) => (
+							{crews.map((crew) => (
 								<TabsTrigger
 									key={crew.id}
 									value={crew.id}
