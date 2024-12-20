@@ -15,10 +15,10 @@ const HomePage: React.FC = () => {
 				<p className="font-barlow-condensed text-preset-6 text-[16px] text-blue-300 md:text-preset-5">
 					SO, YOU WANT TO TRAVEL TO
 				</p>
-				<h1 className="font-bellefair text-preset-1 text-white text-[5rem] md:text-preset-1">
+				<h1 className="font-bellefair text-preset-1 text-white text-[5rem] md:text-preset-1 md:text-[5rem]">
 					SPACE
 				</h1>
-				<p className="font-barlow-condensed text-preset-9 text-[15px] text-blue-300 text-center md:text-preset-9">
+				<p className="font-barlow-condensed text-preset-9 text-[15px] text-blue-300 text-center md:text-preset-9 max-w-[540px]">
 					Let’s face it; if you want to go to space, you might as well genuinely
 					go to outer space and not hover kind of on the edge of it. Well sit
 					back, and relax because we’ll give you a truly out of this world
