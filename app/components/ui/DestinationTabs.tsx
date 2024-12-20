@@ -50,7 +50,7 @@ export default function DestinationTabs() {
 			>
 				<div className="flex flex-col gap-24 md:px-[87px] md:py-3 lg:py-[133px] lg:px-[47px] lg:w-[50%]">
 					<TabsList className="w-full bg-transparent justify-start">
-						<div className="w-full px-[40.5px] flex items-center gap-32 md:justify-center lg:px-0 lg:w-fit">
+						<div className="w-full px-[40.5px] flex justify-center items-center gap-32 md:justify-center lg:px-0 lg:w-fit">
 							{destinations.map((destination) => (
 								<TabsTrigger
 									key={destination.name}
