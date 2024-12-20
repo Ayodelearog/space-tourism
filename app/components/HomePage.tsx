@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
 				<p className="font-barlow-condensed text-preset-6 text-[16px] text-blue-300 md:text-preset-5">
 					SO, YOU WANT TO TRAVEL TO
 				</p>
-				<h1 className="font-bellefair text-preset-1 text-white text-[80px] md:text-preset-1">
+				<h1 className="font-bellefair text-preset-1 text-white text-[79px] md:text-preset-1">
 					SPACE
 				</h1>
 				<p className="font-barlow-condensed text-preset-9 text-[15px] text-blue-300 text-center md:text-preset-9">
