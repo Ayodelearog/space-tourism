@@ -76,6 +76,7 @@ export default function TechnologyTabs() {
 								activeTab === technology.id ? "opacity-100" : "opacity-0"
 							}`}
 						>
+							
 							<div className="relative w-full h-[258px] md:h-[357px] lg:h-[712px]">
 								<Image
 									src={technology.image}
@@ -92,21 +93,15 @@ export default function TechnologyTabs() {
 				</div>
 
 				<div className="flex flex-col gap-24 md:gap-32 md:px-[88px] px-6 lg:w-[50%] lg:px-0 lg:flex-row lg:items-center lg:gap-[64px] ">
-					<TabsList className="w-full bg-transparent flex justify-center lg:justify-start">
-						<div className="flex gap-4 lg:gap-8 lg:flex-col">
-							{technologies.map((tech) => (
+					<TabsList className="w-full bg-transparent justify-start">
+						<div className="w-full px-[40.5px] flex justify-center items-center gap-32 lg:flex-col lg:px-0 lg:w-fit">
+							{technologies.map((technology) => (
 								<TabsTrigger
-									key={tech.id}
-									value={tech.id}
-									className="h-10 w-10 md:h-14 md:w-14 lg:h-20 lg:w-20 rounded-full 
-                       bg-transparent border border-white/25
-                       font-bellefair text-lg md:text-2xl lg:text-[32px] text-white
-                       hover:border-white
-                       data-[state=active]:bg-white data-[state=active]:text-black
-                       transition-colors duration-300 ease-in-out"
-									aria-label={tech.name}
+									key={technology.id}
+									value={technology.id}
+									className="h-[40px] w-[40px] lg:h-[80px] lg:w-[80px] md:w-[56px] md:h-[56px]  rounded-full data-[state=active]:bg-white  hover:bg-white transition-colors duration-600 ease-in-out p-0 font-bellefair text-[18px] bg-transparent border border-white border-opacity-25 lg:text-preset-4"
 								>
-									{tech.id}
+									{technology.id}
 								</TabsTrigger>
 							))}
 						</div>
