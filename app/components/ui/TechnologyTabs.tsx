@@ -65,9 +65,9 @@ export default function TechnologyTabs() {
 			<Tabs
 				value={activeTab}
 				onValueChange={setActiveTab}
-				className="w-full flex flex-col gap-32 "
+				className="w-full flex flex-col gap-32 lg:pl-[165px] lg:py-[48px] lg:flex-row-reverse lg:items-center"
 			>
-				<div className="w-full flex justify-center items-center relative  ">
+				<div className="w-full flex justify-center items-center relative  lg:w-[50%]">
 					{technologies.map((technology) => (
 						<TabsContent
 							key={technology.id}
@@ -92,30 +92,31 @@ export default function TechnologyTabs() {
 					))}
 				</div>
 
-				<div className="flex flex-col gap-24 md:gap-32 md:px-[88px] px-6">
+				<div className="flex flex-col gap-24 md:gap-32 md:px-[88px] px-6 lg:w-[50%] lg:px-0 lg:flex-row lg:items-center lg:gap-[64px] ">
 					<TabsList className="w-full bg-transparent justify-start">
-						<div className="w-full px-[40.5px] flex justify-center items-center gap-32">
+						<div className="w-full px-[40.5px] flex justify-center items-center gap-32 lg:flex-col lg:px-0 lg:w-fit">
 							{technologies.map((technology, index) => (
 								<TabsTrigger
 									key={technology.id}
 									value={technology.id}
-									className="h-[40px] w-[40px] md:w-[56px] md:h-[56px]  rounded-full data-[state=active]:bg-white  hover:bg-white transition-colors duration-600 ease-in-out p-0 font-bellefair text-[18px] bg-transparent border border-white border-opacity-25"
+									className="h-[40px] w-[40px] lg:h-[80px] lg:w-[80px] md:w-[56px] md:h-[56px]  rounded-full data-[state=active]:bg-white  hover:bg-white transition-colors duration-600 ease-in-out p-0 font-bellefair text-[18px] bg-transparent border border-white border-opacity-25 lg:text-preset-4"
 								>
 									{technology.id}
 								</TabsTrigger>
 							))}
 						</div>
 					</TabsList>
+
 					<div>
 						{technologies.map((technology) => (
 							<TabsContent
 								key={technology.name}
 								value={technology.id}
-								className={`w-full flex flex-col gap-24  transition-opacity duration-600 ${
+								className={`w-full flex flex-col gap-24  transition-opacity duration-600  ${
 									activeTab === technology.id ? "opacity-100" : "opacity-0"
 								}`}
 							>
-								<div className="w-full text-center flex flex-col items-center gap-8">
+								<div className="w-full text-center flex flex-col items-center gap-8 lg:items-start">
 									<p className="text-white leading-[20.6px] text-[18px]  font-bellefair text-opacity-50 uppercase md:leading-[28px]  md:text-[24px]">
 										{technology.terminology}
 									</p>
@@ -124,8 +125,7 @@ export default function TechnologyTabs() {
 									</p>
 								</div>
 
-								<p className="text-blue-300 text-center leading-[180%] text-[15px] font-barlow md
-								text-preset-9 ">
+								<p className="text-blue-300 text-center leading-[180%] text-[15px] font-barlow md:text-preset-9 lg:text-preset-9 lg:text-left">
 									{technology.description}
 								</p>
 							</TabsContent>

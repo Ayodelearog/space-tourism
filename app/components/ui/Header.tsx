@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useWindowSize } from "@/app/hooks/useWindowSize";
 
 const navLinks = [
 	{
@@ -27,10 +28,11 @@ const navLinks = [
 const Header = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const pathname = usePathname();
+	const { width } = useWindowSize();
 
 	return (
 		<header className="py-6 md:p-0 w-full fixed top-0 left-0 z-20 ">
-			<div className="w-full px-6 flex justify-between items-center md:hidden ">
+			<div className="w-full px-6 flex justify-between items-center md:hidden lg:hidden">
 				<div className="w-10 h-10 relative ">
 					<Image
 						src="/shared/logo.svg"
@@ -58,7 +60,7 @@ const Header = () => {
 				setIsSidebarOpen={setIsSidebarOpen}
 			/>
 
-			<div className="w-full hidden md:flex items-center gap-10 pl-10 ">
+			<div className="w-full hidden md:flex items-center gap-10 pl-10 lg:pt-10 lg:flex lg:justify-between lg:relative">
 				<div className="min-w-10 h-10 relative ">
 					<Image
 						src="/shared/logo.svg"
@@ -68,7 +70,9 @@ const Header = () => {
 					/>
 				</div>
 
-				<nav className=" flex  gap-32 w-full pl-[117px] md:bg-white md:bg-opacity-5 md:backdrop-blur-sm">
+				<div className="w-[45vw] border-[1px] border-white border-opacity-25 absolute left-[10%] z-50 hidden lg:block "></div>
+
+				<nav className=" flex gap-32 w-full pl-[117px] md:bg-white md:bg-opacity-5 md:backdrop-blur-sm lg:w-fit lg:pr-[64px] lg:gap-[48px]">
 					{navLinks.map((item, index) => (
 						<Link
 							key={item.name}
@@ -80,15 +84,19 @@ const Header = () => {
 													: "border-transparent text-preset-8 hover:border-gray-400"
 											}`}
 						>
-							<p
-								className={`font-bold ${
-									pathname === "/" && item.name.toLowerCase() === "home"
-										? "hidden"
-										: "block"
-								}`}
-							>
-								{index.toString().padStart(2, "0")}
-							</p>
+							{width < 1440 ? (
+								<p
+									className={`font-bold ${
+										pathname === "/" && item.name.toLowerCase() === "home"
+											? "hidden"
+											: "block"
+									}`}
+								>
+									{index.toString().padStart(2, "0")}
+								</p>
+							) : (
+								<p className="font-bold">{index.toString().padStart(2, "0")}</p>
+							)}
 
 							<p>{item.name}</p>
 						</Link>

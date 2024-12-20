@@ -69,20 +69,20 @@ export default function CrewTabs() {
 			<Tabs
 				value={activeTab}
 				onValueChange={setActiveTab}
-				className="w-full flex flex-col gap-32 "
+				className="w-full flex flex-col gap-32 lg:flex-row lg:px-[165px] lg:py-[48px] lg:pt-0"
 			>
-				<div className="flex flex-col gap-24 md:pt-10 md:px-[88px]">
+				<div className="flex flex-col gap-24 md:pt-10 md:px-[88px] lg:px-0 lg:justify-center relative lg:w-[50%]">
 					<div>
 						{crews.map((crew) => (
 							<TabsContent
 								key={crew.name}
 								value={crew.id}
-								className={`w-full flex flex-col gap-24  transition-opacity duration-600 ${
+								className={`w-full flex flex-col gap-24  transition-opacity duration-600 lg:items-start  ${
 									activeTab === crew.id ? "opacity-100" : "opacity-0"
 								}`}
 							>
-								<div className="w-full text-center flex flex-col items-center gap-8">
-									<p className="text-white leading-[20.6px] text-[18px]  font-bellefair text-opacity-50 uppercase md:leading-[28px]  md:text-[24px]">
+								<div className="w-full lg:w-fit lg:text-left text-center flex flex-col items-center gap-8 lg:items-start">
+									<p className="text-white leading-[20.6px] text-[18px]  font-bellefair text-opacity-50 uppercase md:leading-[28px]  md:text-[24px] lg:text-left">
 										{crew.rank}
 									</p>
 									<p className="text-white text-[24px] leading-[27.5px] font-bellefair uppercase  md:text-[40px]">
@@ -90,15 +90,15 @@ export default function CrewTabs() {
 									</p>
 								</div>
 
-								<p className="text-blue-300 text-center text-preset-9 text-[15px] font-barlow-condensed  ">
+								<p className="text-blue-300 text-center text-preset-9 text-[15px] font-barlow-condensed  lg:text-left">
 									{crew.description}
 								</p>
 							</TabsContent>
 						))}
 					</div>
 
-					<TabsList className="w-full bg-transparent justify-start">
-						<div className="w-full px-[40.5px] flex justify-center items-center gap-32">
+					<TabsList className="w-full bg-transparent justify-start lg:absolute lg:bottom-0 lg:left-0 lg:w-fit">
+						<div className="w-full px-[40.5px] lg:px-0 flex justify-center items-center gap-32">
 							{crews.map((crew, index) => (
 								<TabsTrigger
 									key={crew.id}
@@ -110,7 +110,7 @@ export default function CrewTabs() {
 					</TabsList>
 				</div>
 
-				<div className="w-full flex justify-center items-center relative">
+				<div className="w-full flex justify-center items-center relative lg:w-[50%] lg:py-[30px]">
 					{crews.map((crew) => (
 						<TabsContent
 						key={crew.id}
