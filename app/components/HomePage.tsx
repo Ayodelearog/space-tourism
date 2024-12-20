@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
 						SO, YOU WANT TO TRAVEL TO
 					</p>
 					<h1 className="font-bellefair text-preset-1 text-white ">SPACE</h1>
-					<p className="font-barlow-condensed text-preset-9  text-blue-300  ">
+					<p className="font-barlow-condensed text-preset-9  text-blue-300  max-w-[540px] ">
 						Let’s face it; if you want to go to space, you might as well
 						genuinely go to outer space and not hover kind of on the edge of it.
 						Well sit back, and relax because we’ll give you a truly out of this
