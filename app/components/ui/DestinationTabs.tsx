@@ -75,7 +75,7 @@ export default function DestinationTabs() {
 								}`}
 							>
 								<div className="w-full lg:w-fit flex flex-col items-center gap-16 lg:items-start">
-									<h1 className="text-white uppercase text-preset-2 text-[56px] font-bellefair md:text-preset-2">
+									<h1 className="text-white uppercase text-preset-2 text-[3.5rem] font-bellefair md:text-preset-2">
 										{destination.name}
 									</h1>
 									<p className="font-barlow text-preset-9 text-[15px] text-blue-300 text-center lg:text-left">
